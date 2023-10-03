@@ -75,14 +75,11 @@ public class cvkernels extends org.bytedeco.opencv.cvkernels {
         // Transform in parallel on multiple threads
         final IplImage img = data.position(0).srcImg();
         final int depth = img.depth();
-        final int x, y, w, h;
-        if (roi != null) {
-            x = roi.x();     y = roi.y();
-            w = roi.width(); h = roi.height();
-        } else {
-            x = 0;           y = 0;
-            w = img.width(); h = img.height();
-        }
+        final int x =  roi != null ? roi.x() : 0;
+        final int y =  roi != null ? roi.y() : 0;
+        final int w =  roi != null ? roi.width() : img.width();
+        final int h =  roi != null ? roi.height() : img.height();
+
         Parallel.loop(y, y+h, pd.length, new Parallel.Looper() {
         public void loop(int from, int to, int looperID) {
             CvRect r = pd[looperID].roi.x(x).y(from).width(w).height(to-from);
