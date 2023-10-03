@@ -11,3 +11,6 @@
 # IntelliJ
 *.iml
 .idea
+red4j-data/
+**/cp.txt
+**.java.orig

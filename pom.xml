@@ -169,6 +169,13 @@
       <version>2.3.2</version>
       <optional>true</optional>
     </dependency>
+    <dependency>
+      <groupId>org.rediscover4j</groupId>
+      <artifactId>reDiscover4j</artifactId>
+      <version>0.0.1</version>
+      <scope>system</scope>
+      <systemPath>${env.RED4JCP}</systemPath>
+  </dependency>
   </dependencies>
 
   <repositories>
